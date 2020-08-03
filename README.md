@@ -7,6 +7,17 @@
 -- Likes
 -- User
 
+# How To Use Laravel With MongoDB
+Step 1: Configure the Mongodb database in Windows.
+Step 2: Install and configure Laravel.
+Step 3: Install and configure the MongoDB package for Laravel.
+Step 4: Create a model, route, controller, and view file.
+Step 5: From the view file, fill the input details and send the POST request to the Laravel server, which then saves the data into MongoDB database.
+Step 6: Display the data in the frontend using the Laravel view.
+Step 7: Then, create an edit form and update the data into the database.
+Step 8: Write the logic to delete the data from the database inside the controller file.
+Reference: https://appdividend.com/2018/05/10/laravel-mongodb-crud-tutorial-with-example/
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
