@@ -2,18 +2,23 @@
 
 namespace App\Model;
 
+use App\User;
+use App\Model\Like;
+use App\Model\Question;
 use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
+    protected $guarded = [];
+
     public function question()
     {
-        return $this->belognsTo(Question::class);
+        return $this->belongsTo(Question::class);
     }
 
     public function user()
     {
-        return $this->belogsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function like()
