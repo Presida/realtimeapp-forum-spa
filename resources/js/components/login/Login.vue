@@ -39,8 +39,11 @@
                   ></v-text-field>
 
                     <v-card-actions>
-                        <v-spacer></v-spacer>
                         <v-btn color="primary" type="submit">Login</v-btn>
+                        <v-spacer></v-spacer>
+                        <router-link to="/signup">
+                            Signup
+                        </router-link>
                     </v-card-actions>
                 </v-form>
               </v-card-text>
@@ -57,12 +60,19 @@
             form: {
                 email: null,
                 password: null
-            }
+            },
+            errors: {}
+        }
+    },
+    created() {
+        if(User.loggedIn()) {
+            this.$router.push({name: 'forum'})
         }
     },
     methods: {
         login() {
             User.login(this.form)
+            // this.$router.push({name: 'forum'})
         }
     }
   }

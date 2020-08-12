@@ -7,32 +7,47 @@
                 <span>Forum</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <router-link to="/forum">
-                <v-btn text class="grey--text">Forum</v-btn>
-            </router-link>
-            <v-btn text class="grey--text">Ask Question</v-btn>
-            <v-btn text class="grey--text">Category</v-btn>
-
-            <router-link to="/login">
-                <v-btn text class="grey--text">
-                    <span>Login</span>
-                    <v-icon right>mdi-import</v-icon>
+            <li>
+            <router-link
+                v-for="item in items"
+                :key="item.title"
+                :to="item.to"
+                text class="grey--text"
+            >
+                <v-btn text v-if="item.show">
+                    <span>{{item.title}}</span>
+                    <v-icon right>{{item.icon}}</v-icon>
                 </v-btn>
             </router-link>
-            <v-btn text class="grey--text">
-                <span>Sign Out</span>
-                <v-icon right>mdi-export</v-icon>
-            </v-btn>
+            </li>
         </v-app-bar>
     </nav>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            items: [
+                {title: 'Forum', to: '/forum', show: true},
+                {title: 'Ask Question', to: '/ask', show: User.loggedIn()},
+                {title: 'Category', to: '/category', show: User.loggedIn()},
+                {title: 'Login', to: '/login', show: !User.loggedIn(), icon: 'mdi-import'},
+                {title: 'Logout', to: '/logout', show: User.loggedIn(), icon: 'mdi-export'},
+            ]
+        }
+    },
+    created() {
+        EventBus.$on('logout', () => {
+            User.logout()
+        })
+    }
 }
 </script>
 
 <style scoped>
-
+    li { list-style-type: none; }
+    li a {
+        text-decoration: none;
+    }
 </style>

@@ -5,8 +5,11 @@ import router from './Router/router'
 import User from './Helpers/User'
 
 window.User = User
-// window.axios = require('axios');
-// Vue.prototype.axios = window.axios;
+
+window.axios = require('axios');
+Vue.prototype.axios = window.axios;
+
+window.EventBus = new Vue();
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
