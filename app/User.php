@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\Question;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
@@ -41,7 +42,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function question()
     {
-        return $this->hasMany(Qeustion::class);
+        return $this->hasMany(Question::class);
     }
 
     // Rest omitted for brevity

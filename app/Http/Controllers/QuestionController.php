@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Question;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Resources\QuestionResource;
 
@@ -36,9 +37,16 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        // \auth()->user()->question()->create($request->all());
-        Question::create($request->all());
-        return \response('Created', 201);
+        // when test api
+        // Question::create($request->all());
+        // return \response('Created', 201);
+
+        // Generate slug method 1
+        // $request['slug'] = Str::slug($request->title);
+        // Generate slug method 2 is in Qeustion model
+
+        $question = \auth()->user()->question()->create($request->all());
+        return \response(new QuestionResource($question), 201);
     }
 
     /**
