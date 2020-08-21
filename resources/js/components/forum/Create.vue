@@ -20,13 +20,15 @@
                 dense
                 filled
                 label="Category"
+                class="rounded-sm"
             ></v-autocomplete>
 
             <vue-simplemde v-model="form.body" ref="markdownEditor" />
 
             <v-btn
-                color="primary"
                 type="submit"
+                class="rounded-sm blue lighten-1"
+                dark
             >
                 Create
             </v-btn>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-container>
         <div v-if="showEdit">
             <edit-comp :question="question"/>
         </div>
@@ -14,9 +14,9 @@
                     <v-chip
                         class="ma-2"
                         color="teal"
-                        text-color="white"
+                        outlined
                         >
-                        5 Reply
+                        5 Replies
                     </v-chip>
                     <div v-if="own">
                         <v-btn color="warning" text fab small dark @click="edit">
@@ -35,7 +35,7 @@
                 </v-card-text>
             </v-card>
         </div>
-    </div>
+    </v-container>
 </template>
 
 <script>

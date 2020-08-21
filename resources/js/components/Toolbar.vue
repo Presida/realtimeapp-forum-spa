@@ -1,7 +1,6 @@
 <template>
     <nav>
-        <v-app-bar>
-
+        <v-toolbar :elevation="1">
             <v-toolbar-title class="text-uppercase">
                 <span class="font-weight-light">RealTime</span>
                 <span>Forum</span>
@@ -20,7 +19,7 @@
                 </v-btn>
             </router-link>
             </li>
-        </v-app-bar>
+        </v-toolbar>
     </nav>
 </template>
 
@@ -31,7 +30,7 @@ export default {
             items: [
                 {title: 'Forum', to: '/forum', show: true},
                 {title: 'Ask Question', to: '/ask', show: User.loggedIn()},
-                {title: 'Category', to: '/category', show: User.loggedIn()},
+                {title: 'Category', to: '/category', show: User.admin()},
                 {title: 'Login', to: '/login', show: !User.loggedIn(), icon: 'mdi-import'},
                 {title: 'Logout', to: '/logout', show: User.loggedIn(), icon: 'mdi-export'},
             ]

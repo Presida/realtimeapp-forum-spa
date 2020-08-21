@@ -1,8 +1,9 @@
 <template>
     <v-container>
         <v-btn color="grey darken-2" text fab small dark @click="cancel">
-        <v-icon>mdi-arrow-left</v-icon>
+            <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
+        Back
         <v-form
             ref="form"
             lazy-validation
@@ -18,8 +19,9 @@
             <vue-simplemde v-model="form.body" ref="markdownEditor" />
 
             <v-btn
-                color="primary"
+                class="blue darken-1"
                 type="submit"
+                dark
             >
                 Update
             </v-btn>

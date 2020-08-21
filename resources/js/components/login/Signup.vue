@@ -1,25 +1,11 @@
 <template>
-          <v-container
-        class=""
-        fluid
-      >
-        <v-row
-          align="center"
-          justify="center"
-        >
-          <v-col
-            cols="12"
-            sm="8"
-            md="4"
-          >
-            <v-card class="elevation-12">
-              <v-toolbar
-                color="primary"
-                dark
-                flat
-              >
-                <v-toolbar-title>Signup</v-toolbar-title>
-              </v-toolbar>
+    <v-container fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <v-card>
+              <v-card-title class="success white--text">
+                Signup
+              </v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="signup">
                   <v-text-field
@@ -27,15 +13,17 @@
                     prepend-icon="mdi-account"
                     type="text"
                     v-model="form.name"
+                    color="success"
                     required
                   ></v-text-field>
                   <span class="red--text" v-if="errors.name">{{errors.name[0]}}</span>
 
                   <v-text-field
                     label="E-mail"
-                    prepend-icon="mdi-account"
+                    prepend-icon="mdi-email"
                     type="text"
                     v-model="form.email"
+                    color="success"
                     required
                   ></v-text-field>
                   <span class="red--text" v-if="errors.email">{{errors.email[0]}}</span>
@@ -45,23 +33,25 @@
                     v-model="form.password"
                     prepend-icon="mdi-lock"
                     type="password"
+                    color="success"
                     required
                   ></v-text-field>
                   <span class="red--text" v-if="errors.password">{{errors.password[0]}}</span>
 
                   <v-text-field
-                    label="Password"
+                    label="Confirm Password"
                     v-model="form.password_confirmation"
                     prepend-icon="mdi-lock"
                     type="password"
+                    color="success"
                     required
                   ></v-text-field>
                   <span class="red--text" v-if="errors.password">{{errors.password[0]}}</span>
 
                     <v-card-actions>
-                        <v-btn color="primary" type="submit">Signup</v-btn>
+                        <v-btn outlined color="success" type="submit">Signup</v-btn>
                         <v-spacer></v-spacer>
-                        <router-link to="/Login">
+                        <router-link class="success--text" to="/Login">
                             Login
                         </router-link>
                     </v-card-actions>

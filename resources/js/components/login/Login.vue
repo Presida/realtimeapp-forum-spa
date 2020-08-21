@@ -1,25 +1,11 @@
 <template>
-      <v-container
-        class=""
-        fluid
-      >
-        <v-row
-          align="center"
-          justify="center"
-        >
-          <v-col
-            cols="12"
-            sm="8"
-            md="4"
-          >
-            <v-card class="elevation-12">
-              <v-toolbar
-                color="primary"
-                dark
-                flat
-              >
-                <v-toolbar-title>Login</v-toolbar-title>
-              </v-toolbar>
+      <v-container fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <v-card>
+              <v-card-title class="success white--text">
+                Login
+              </v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="login">
                   <v-text-field
@@ -27,6 +13,7 @@
                     prepend-icon="mdi-account"
                     type="text"
                     v-model="form.email"
+                    color="success"
                     required
                   ></v-text-field>
 
@@ -35,13 +22,13 @@
                     v-model="form.password"
                     prepend-icon="mdi-lock"
                     type="password"
+                    color="success"
                     required
                   ></v-text-field>
-
                     <v-card-actions>
-                        <v-btn color="primary" type="submit">Login</v-btn>
+                        <v-btn outlined color="success" type="submit">Login</v-btn>
                         <v-spacer></v-spacer>
-                        <router-link to="/signup">
+                        <router-link class="success--text" to="/signup">
                             Signup
                         </router-link>
                     </v-card-actions>
