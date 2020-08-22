@@ -11,6 +11,9 @@
                 • {{reply.created_at}}
                 </v-subheader>
                 <v-spacer></v-spacer>
+                <v-subheader>
+                    <like :content="reply" />
+                </v-subheader>
                 <div v-if="own(reply.user_id) && !isEdit">
                     <v-btn color="warning" text fab small dark @click="edit">
                     <v-icon>mdi-pencil</v-icon>
@@ -29,6 +32,7 @@
 
 <script>
 import EditReply from './editReply'
+import Like from '../like/Like'
 
 export default {
     props: ['replies'],
@@ -65,7 +69,8 @@ export default {
         })
     },
     components: {
-        EditReply
+        EditReply,
+        Like
     }
 }
 </script>

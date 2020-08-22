@@ -16,7 +16,7 @@
                         color="teal"
                         outlined
                         >
-                        Category
+                        {{question.category}}
                     </v-chip>
                     </v-card-subtitle>
                     <div v-if="own">
