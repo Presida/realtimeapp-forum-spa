@@ -4,20 +4,21 @@
             <edit-comp :question="question"/>
         </div>
         <div v-if="!showEdit">
-            <v-card class="my-3" v-if="question">
+            <v-card class="mb-2" v-if="question">
                 <v-card-title>
                     {{question.title}}
                     <v-spacer></v-spacer>
-                    <v-avatar>
+                    <v-card-subtitle>
                         <v-icon>mdi-message-text</v-icon>
-                    </v-avatar>
+                        {{question.reply_count}} Replies
                     <v-chip
                         class="ma-2"
                         color="teal"
                         outlined
                         >
-                        5 Replies
+                        Category
                     </v-chip>
+                    </v-card-subtitle>
                     <div v-if="own">
                         <v-btn color="warning" text fab small dark @click="edit">
                         <v-icon>mdi-pencil</v-icon>
@@ -28,18 +29,23 @@
                     </div>
                 </v-card-title>
                 <v-card-subtitle>
-                    {{question.user}} .
+                    {{question.user}} •
                     {{question.create_at}}
                 </v-card-subtitle>
                 <v-card-text class="text--primary" v-html="body">
                 </v-card-text>
             </v-card>
         </div>
+
+        <replies :replies="[question.replies, question.slug]"/>
+        <new-reply :questionSlug="question.slug" />
     </v-container>
 </template>
 
 <script>
 import EditComp from './Edit'
+import Replies from '../reply/Replies'
+import NewReply from '../reply/newReply'
 
 export default {
     data () {
@@ -49,6 +55,11 @@ export default {
             own: null,
             showEdit: false
         }
+    },
+    components: {
+        EditComp,
+        Replies,
+        NewReply
     },
     created () {
         axios.get(`/api/question/${this.$route.params.slug}`)
@@ -77,9 +88,6 @@ export default {
         edit() {
             return this.showEdit = true
         }
-    },
-    components: {
-        EditComp
     }
 }
 </script>

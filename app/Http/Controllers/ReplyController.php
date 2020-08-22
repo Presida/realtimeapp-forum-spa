@@ -76,7 +76,7 @@ class ReplyController extends Controller
      */
     public function destroy(Question $question, Reply $reply)
     {
-        $question->delete();
+        $reply->delete();
         return response(null, 204);
     }
 }
