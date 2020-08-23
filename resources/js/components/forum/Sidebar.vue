@@ -2,7 +2,7 @@
     <v-card class="mx-auto">
     <v-list>
       <v-subheader>Categories</v-subheader>
-      <v-list-item-group color="primary">
+      <v-list-item-group>
         <v-list-item
           v-for="(category, i) in categories"
           :key="i"

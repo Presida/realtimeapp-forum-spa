@@ -6,6 +6,7 @@
                 <span>Forum</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
+            <app-notification v-if="loggedIn"/>
             <li>
             <router-link
                 v-for="item in items"
@@ -24,7 +25,12 @@
 </template>
 
 <script>
+import AppNotification from './AppNotification'
+
 export default {
+    components: {
+        AppNotification
+    },
     data() {
         return {
             items: [
@@ -33,7 +39,8 @@ export default {
                 {title: 'Category', to: '/category', show: User.admin()},
                 {title: 'Login', to: '/login', show: !User.loggedIn(), icon: 'mdi-import'},
                 {title: 'Logout', to: '/logout', show: User.loggedIn(), icon: 'mdi-export'},
-            ]
+            ],
+            loggedIn: User.loggedIn()
         }
     },
     created() {
